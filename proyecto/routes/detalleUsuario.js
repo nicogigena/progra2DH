@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('registracion', { title: 'Express' });
+  res.render('detalleUsuario', { title: 'Express' });
 });
+
+
 
 module.exports = router;
