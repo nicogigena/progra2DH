@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var detalleCont = require('../controllers/detallePostController')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('detallePost', { title: 'Express' });
-});
+router.get('/', detalleCont.index);
 
 
 module.exports = router;
