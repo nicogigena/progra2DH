@@ -1,8 +1,9 @@
+let datosUsuarios= require ("../datosUsuarios.js");
 let indexController ={
     index: function(req, res){
     
     
-        res.render('registracion', { title: 'Express' });
+        res.render('registracion', { datosUsuarios });
     }
     
     

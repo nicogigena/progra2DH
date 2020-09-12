@@ -1,22 +1,23 @@
 
 
+let datosUsuarios= require ("../datosUsuarios.js");
 let homeController ={
 index: function(req, res){
 
 
-    res.render('home', { title: 'Express' });
+    res.render('home', { datosUsuarios });
 },
 agregarPost: function(req, res){
 
 
 
-    res.render('agregarPost', { title: 'Express' })
+    res.render('agregarPost', { datosUsuarios })
 },
 miPerfil: function(req, res){
 
     
 
-    res.render('miPerfil', { title: 'Express' })
+    res.render('miPerfil', { datosUsuarios })
 }
 
 

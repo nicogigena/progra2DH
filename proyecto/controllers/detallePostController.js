@@ -1,3 +1,5 @@
+
+
 let detallePostController ={
     index: function(req, res){
     
