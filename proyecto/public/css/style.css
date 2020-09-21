@@ -1,0 +1,12 @@
+.uk-background-primary {
+    background-color:#d260e6;
+}
+a {
+    color: #d260e6;
+    text-decoration: none;
+    background-color: transparent;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #d260e6;
+    border-color: #d260e6;
