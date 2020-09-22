@@ -18,6 +18,7 @@ h2 {
     font-family: 'Noto Sans', sans-serif !important;
     font-weight: bold;
     color: #65207a;
+    text-align: center;
 }
 a {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -27,3 +28,24 @@ html, body {
 background-color: #ebddf0;
 }
 
+.custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: calc(1.5em + .75rem);
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color:white;
+    content: "Browse";
+    background-color: #65207a;
+    border-left: inherit;
+    border-radius: 0 .25rem .25rem 0;
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+  
+}
