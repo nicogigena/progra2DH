@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var detalleCont = require('../controllers/detalleUsuarioController')
+var detalleController = require('../controllers/detalleUsuarioController')
 
 /* GET home page. */
-router.get('/', detalleCont.index);
+router.get('/', detalleController.index);
 
 
 

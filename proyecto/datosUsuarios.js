@@ -55,7 +55,7 @@ posts: [],
 {
 nombre: "Trinidad",
 apellido: "Diaz Colodrero",
-nombreDeUsuario: "marianosuarez",
+nombreDeUsuario: "trinidc",
 fotoDePerfil: [],
 dni: 13956550,
 mail: "trinidc@gmail.com",

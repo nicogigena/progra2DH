@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var homeCont = require("../controllers/homeController")
+var homeController = require("../controllers/homeController")
 
 /* GET home page. */
-router.get('/', homeCont.index);
-router.get('/agregarPost', homeCont.agregarPost);
-router.get('/miPerfil', homeCont.miPerfil);
+router.get('/', homeController.index);
+router.get('/agregarPost', homeController.agregarPost);
+router.get('/miPerfil', homeController.miPerfil);
 
 
 module.exports = router;
