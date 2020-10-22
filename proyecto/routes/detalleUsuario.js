@@ -3,7 +3,7 @@ var router = express.Router();
 var detalleController = require('../controllers/detalleUsuarioController')
 
 /* GET home page. */
-router.get('/', detalleController.index);
+router.get('/:id', detalleController.index);
 
 
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h1>Listado de usuarios que coinciden con su búsqueda</h1>
+    <ul>
+        <% for(let i=0; i<resultados.length; i++){ %> 
+        <li>
+            <a href="/detalleUsuario/<%= resultados[i].id %>">  <%=  resultados[i].email %> <br> <%=  resultados[i].nombre + " " + resultados[i].apellido %></a>
+        </li>
+        <% } %>
+    </ul>
+</body>
+</html>

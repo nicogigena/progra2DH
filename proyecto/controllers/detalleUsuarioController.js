@@ -3,7 +3,7 @@ let detalleUsuarioController ={
     index: function(req, res){
     
     
-        res.render('detalleUsuario', { datosUsuarios});
+        res.render('detalleUsuario', {datosUsuarios});
     }
     
     

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<body>
+    <h1>Listado de posts que coinciden con su búsqueda</h1>
+    <ul>
+        <% for(let i=0; i<resultados.length; i++){ %> 
+        <li>
+            <a href="/detallePost/<%= resultados[i].id %>">  <%=  resultados[i].url %> <br> <%=  resultados[i].descripcion  %></a>
+        </li>
+        <% } %>
+    </ul>
+</body>
+</html>
