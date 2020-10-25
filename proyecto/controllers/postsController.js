@@ -10,10 +10,15 @@ let postsController = {
     post.findAll({
         where: [
             {descripcion: { [op.like] : "%" + buscarPost + "%"}}
-        ]
+        ],
+        order: [
+            ['creacion', 'ASC']
+        ],
+        limit: 10
     })
     .then(function(resultados){
-        return res.render('buscadorPosts', {resultados})
+        console.log(resultados);
+        return res.render('buscadorPosts', {resultados: resultados})
     })
     .catch(function(error){
         console.log(error)

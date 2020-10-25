@@ -8,11 +8,19 @@
 <body>
     <h1>Listado de posts que coinciden con su búsqueda</h1>
     <ul>
-        <% for(let i=0; i<resultados.length; i++){ %> 
-        <li>
-            <a href="/detallePost/<%= resultados[i].id %>">  <%=  resultados[i].url %> <br> <%=  resultados[i].descripcion  %></a>
-        </li>
-        <% } %>
+        <% if(resultados[0]){   %> 
+
+            <% for(let i=0; i<resultados.length; i++){ %> 
+                <li>
+                    <a href="/detallePost/<%= resultados[i].id %>"> <img src="<%=  resultados[i].url %>" alt="">  <br> <%=  resultados[i].descripcion  %></a>
+                </li>
+                <% } %>
+
+        <% } else { %> 
+           <h2>No se encontraron resultados para la búsqueda</h2>
+        <% } %> 
+
+        
     </ul>
 </body>
 </html>
