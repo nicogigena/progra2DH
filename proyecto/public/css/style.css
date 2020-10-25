@@ -49,3 +49,32 @@ label {
     margin-bottom: .5rem;
   
 }
+.imagen-post{
+    width: 50%;
+}
+
+h1{
+    color: #65207a;
+    font-family:  'Noto Sans', sans-serif !important;
+}
+
+a{
+    color: #d260e6;
+}
+
+button {
+    background-color: #65207a  !important;
+}
+
+body {
+    text-align: center;
+}
+
+ul li {
+    list-style-type: none !important;
+}
+
+h2 {
+    color: #65207a;
+    font-family:  'Noto Sans', sans-serif !important;
+}

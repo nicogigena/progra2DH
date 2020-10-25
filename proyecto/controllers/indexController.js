@@ -17,7 +17,7 @@ let indexController ={
             apellido: req.body.apellido
         }
 
-        return res.send(register)
+        return res.render('login', register)
 
     }
     

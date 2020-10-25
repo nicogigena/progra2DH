@@ -1,15 +1,30 @@
 let db = require('../database/models')
 const post = db.Postear; 
+const usuario = db.Usuarios;
 const op = db.Sequelize.Op 
 
 let homeController = {
 
 index: function(req, res){
 
-post.findAll()
+post.findAll(
+    {order: [['creacion', 'ASC']]}
+    )
 .then(function(resultados){
-    console.log(resultados)
     return res.render('home', {resultados: resultados})
+})
+
+.catch(function(error){
+    console.log(error)
+})
+},
+
+usuarios: function(req, res){
+
+usuario.findAll()
+.then(function(datos){
+    console.log(datos)
+    return res.render('home', {datos: datos})
 })
 
 .catch(function(error){

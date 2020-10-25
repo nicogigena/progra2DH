@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/general.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+    <title>Posts</title>
 </head>
 <body>
+    <%- include("./partials/headerDeslogueado.ejs") %>
+    <br>
     <h1>Listado de usuarios que coinciden con su búsqueda</h1>
     <ul>
         <% if(resultados[0]){ %> 
 
             <% for(let i=0; i<resultados.length; i++){ %> 
+                <br>
                 <li>
                     <a href="/detalleUsuario/<%= resultados[i].id %>">  <%=  resultados[i].email %> <br> <%=  resultados[i].nombre + " " + resultados[i].apellido %></a>
                 </li>
+                <br>
                 <% } %>
                 
         <% } else { %>
@@ -21,5 +36,6 @@
             <% } %>  
         
     </ul>
+    <%- include("./partials/footer.ejs") %>
 </body>
 </html>
