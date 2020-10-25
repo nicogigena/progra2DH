@@ -1,5 +1,4 @@
-let datosUsuarios= require ("../datosUsuarios.js");
-let db = require('../database/models/index')
+let db = require('../database/models')
 const post = db.Postear; 
 const op = db.Sequelize.Op 
 
@@ -9,13 +8,14 @@ index: function(req, res){
 
 post.findAll()
 .then(function(resultados){
+    console.log(resultados)
     return res.render('home', {resultados: resultados})
 })
+
 .catch(function(error){
     console.log(error)
 })
 
-    res.render('home', { datosUsuarios });
 },
 
 agregarPost: function(req, res){
@@ -31,9 +31,6 @@ miPerfil: function(req, res){
 
     res.render('miPerfil', { datosUsuarios })
 }
-
-
-
 
 };
 

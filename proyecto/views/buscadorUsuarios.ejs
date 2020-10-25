@@ -8,11 +8,18 @@
 <body>
     <h1>Listado de usuarios que coinciden con su búsqueda</h1>
     <ul>
-        <% for(let i=0; i<resultados.length; i++){ %> 
-        <li>
-            <a href="/detalleUsuario/<%= resultados[i].id %>">  <%=  resultados[i].email %> <br> <%=  resultados[i].nombre + " " + resultados[i].apellido %></a>
-        </li>
-        <% } %>
+        <% if(resultados[0]){ %> 
+
+            <% for(let i=0; i<resultados.length; i++){ %> 
+                <li>
+                    <a href="/detalleUsuario/<%= resultados[i].id %>">  <%=  resultados[i].email %> <br> <%=  resultados[i].nombre + " " + resultados[i].apellido %></a>
+                </li>
+                <% } %>
+                
+        <% } else { %>
+                <h2>No se encontraron resultados para la búsqueda</h2>
+            <% } %>  
+        
     </ul>
 </body>
 </html>
