@@ -18,7 +18,7 @@
 </head>
 <body>
     <%- include("./partials/headerDeslogueado.ejs") %>
-    <br>
+    <br><br>
     <h1>Listado de usuarios que coinciden con su búsqueda</h1>
     <ul>
         <% if(resultados[0]){ %> 
@@ -32,7 +32,9 @@
                 <% } %>
                 
         <% } else { %>
+           <br><br><br><br><br><br><br><br><br>
                 <h2>No se encontraron resultados para la búsqueda</h2>
+            
             <% } %>  
         
     </ul>
