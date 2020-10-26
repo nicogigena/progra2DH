@@ -1,14 +1,17 @@
-let datosUsuarios= require ("../datosUsuarios.js");
+const db = require('../database/models')
+const op = db.Sequelize.Op;
+const bcrypt = require('bcryptjs');
+const users = db.Usuario;
+
 let indexController ={
     index: function(req, res){
     
-    
-        res.render('registracion', { datosUsuarios });
+        return res.render('registracion');
     },
     store: function (req, res){
         let register = {
             email: req.body.email,
-            contraseña: req.body.contraseña,
+            contraseña: bcrypt.hashSync(req.body.contraseña, 10),
             nacimiento: req.body.nacimiento,
             direccion: req.body.direccion,
             ciudad: req.body.ciudad,
@@ -16,13 +19,13 @@ let indexController ={
             nombre: req.body.nombre,
             apellido: req.body.apellido
         }
-
-        return res.render('login', register)
-
+        users.create(register);
+        //return res.redirect('/home')
+        return res.send(register)
     }
     
     
     
     };
     
-    module.exports = indexController
+    module.exports = indexController;

@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require('express-session')
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -11,7 +12,8 @@ var homeRouter = require('./routes/home');
 var detallePostRouter = require('./routes/detallePost');
 var detalleUsuarioRouter = require('./routes/detalleUsuario');
 var usuariosRouter = require('./routes/buscadorUsuarios')
-var postsRouter = require('./routes/buscadorPosts')
+var postsRouter = require('./routes/buscadorPosts');
+
 
 var app = express();
 
@@ -33,6 +35,14 @@ app.use('/detallePost', detallePostRouter);
 app.use('/detalleUsuario', detalleUsuarioRouter);
 app.use('/buscadorUsuarios', usuariosRouter);
 app.use('/buscadorPosts', postsRouter);
+app.use(session(
+  {
+    //el texto de moviesdb puede ser cualquiera que yo quiera.
+  secret: 'moviesdb',
+  resave: false,
+  saveUninitialized: true
+}
+))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -4,7 +4,6 @@ var homeController = require("../controllers/homeController")
 
 /* GET home page. */
 router.get('/', homeController.index);
-router.get('/', homeController.usuarios);
 router.get('/agregarPost', homeController.agregarPost);
 router.get('/miPerfil', homeController.miPerfil);
 
