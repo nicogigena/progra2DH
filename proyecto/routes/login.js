@@ -6,6 +6,8 @@ var homeController = require('../controllers/homeController')
 /* GET home page. */
 router.get('/', loginController.index);
 router.get('/home', homeController.index);
+router.post('/home', homeController.index);
+
 
 
 module.exports = router;

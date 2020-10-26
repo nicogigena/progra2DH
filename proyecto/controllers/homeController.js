@@ -12,6 +12,10 @@ post.findAll(
     )
 .then(function(resultados){
     return res.render('home', {resultados: resultados})
+    
+})
+.then(function(resultados){
+    return res.render('login', {resultados : resultados})
 })
 
 .catch(function(error){
