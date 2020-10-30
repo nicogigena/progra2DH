@@ -20,8 +20,8 @@ let indexController ={
             apellido: req.body.apellido
         }
         users.create(register);
-        //return res.redirect('/home')
-        return res.send(register)
+        return res.redirect('/login')
+        //return res.send(register)
     }
     
     
