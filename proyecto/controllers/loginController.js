@@ -24,11 +24,11 @@ let loginController = {
              return res.send("Contraseña equivocada")
          }
           //coinciden las contraseñas?
-         else if( bcrypt.compareSync(req.body.contraseña, user.contraseña)==true){
+         else if(bcrypt.compareSync(req.body.contraseña, user.contraseña)==true){
              //guardar en session los datos del usuario
              req.session.user = user
              // req.session.user = user.email
-              return res.redirect('/login');
+              return res.redirect('/home');
          }
      })
 

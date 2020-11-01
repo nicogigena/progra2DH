@@ -37,12 +37,19 @@ app.use('/buscadorUsuarios', usuariosRouter);
 app.use('/buscadorPosts', postsRouter);
 app.use(session(
   {
-    //el texto de moviesdb puede ser cualquiera que yo quiera.
-  secret: 'moviesdb',
+  secret: 'proyecto',
   resave: false,
   saveUninitialized: true
 }
 ))
+app.use(function(req, res, next){
+  if(req.session.user != undefined){
+//locals me deja disponible datos en todas las vistas
+  res.locals.user = req.session.user 
+}
+  return next();
+
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
