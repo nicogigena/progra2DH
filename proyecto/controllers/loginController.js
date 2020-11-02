@@ -23,8 +23,9 @@ let loginController = {
              return res.send("Contraseña equivocada")
          }  else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){          //coinciden las contraseñas?
             //guardar en session los datos del usuario
-            //req.session.user = user;
-            // req.session.user = user.email
+
+            req.session.user = user;
+            //return res.send(req.session.user)
              return res.redirect('/home');
         }
      })
