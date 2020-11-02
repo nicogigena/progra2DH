@@ -19,12 +19,21 @@ let loginController = {
          // puede pasar que el email no este en la base de datos
          if (user == null){
              return res.send("Email incorrecto")
-         } else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)==false){
+         }
+         else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)==false){
              return res.send("Contraseña equivocada")
-         }  else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){          //coinciden las contraseñas?
+         }
+          //coinciden las contraseñas?
+         else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
             //guardar en session los datos del usuario
-            //req.session.user = user;
+<<<<<<< HEAD
+
+            req.session.user = user;
+            //return res.send(req.session.user)
+=======
+           console.log(user);
             // req.session.user = user.email
+>>>>>>> 75ff56f8d318184da1265a08dee94dc5dda743a7
              return res.redirect('/home');
         }
      })

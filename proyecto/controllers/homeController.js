@@ -35,10 +35,10 @@ let homeController = {
         },
 
         storePost: function (req, res){
-
-            //let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
-            let posteo = {
-                usuario_id: req.body.usuario_id,
+            
+            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
+            let postear = {
+                usuario_id: idLogueado,
                 url: req.body.url,
                 descripcion: req.body.descripcion,
                 ubicacion: req.body.ubicacion

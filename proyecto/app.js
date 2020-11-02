@@ -25,6 +25,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session(
+  { secret:'proyecto',
+    resave: false,
+    saveUninitialized: true }
+));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -35,13 +40,7 @@ app.use('/detallePost', detallePostRouter);
 app.use('/detalleUsuario', detalleUsuarioRouter);
 app.use('/buscadorUsuarios', usuariosRouter);
 app.use('/buscadorPosts', postsRouter);
-app.use(session(
-  {
-  secret: 'proyecto',
-  resave: false,
-  saveUninitialized: true
-}
-));
+
 
 app.use(function(req, res, next){
   if(req.session.user != undefined){
