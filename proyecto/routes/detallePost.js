@@ -4,7 +4,7 @@ var detalleController = require('../controllers/detallePostController')
 
 /* GET home page. */
 router.get('/', detalleController.index);
-router.get('/:id', detalleController.index);
+router.get('/:id', detalleController.porId);
 
 
 module.exports = router;
