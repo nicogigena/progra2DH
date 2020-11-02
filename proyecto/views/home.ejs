@@ -31,20 +31,20 @@
 </head>
 
 <body>
-    <%- include("./partials/headerDeslogueado.ejs") %>
+    <%- include("./partials/headerLogueado.ejs") %>
 
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
                 <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
-                    <% for (let index = 0; index<datos.length ; index++) {%>
+                    <% for (let index = 0; index<resultados.length ; index++) {%>
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex">
                             <div>
-                                <img class="foto-perfil" src=" " alt="">
+                                <img class="foto-perfil" src="" alt="">
                             </div>
                             <h4>
-                                <%= datos[index].nombre %> 
+                                <%= datos[resultados[index].usuario_id].nombre %> 
                             </h4>
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
@@ -58,7 +58,7 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><%= datos[index].nombre %> </h5>
+                                <h5 class="uk-width-1-6"><%= datos[resultados[index].usuario_id].nombre %> </h5>
                                 <p class="uk-width-5-6"><%= resultados[index].descripcion %></p>
                             </div>
                         </div>

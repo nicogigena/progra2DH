@@ -36,13 +36,12 @@
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-center uk-flex-middle" >
-                <form action="/home">
+                <form action="/home/agregarPost" method="POST">
                     <h2 style="font-family:modeka;">Agregar post</h2>
                     <br><br><br>
-
-                    <div class="custom-file">
-                        <input name="imagen" type="file" class="custom-file-input" id="customFileLang" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar imágen</label>
+                     <div class="form-group">
+                        <label for="formGroupExampleInput">Link: </label>
+                        <input name="link" type="url" class="form-control" id="formGroupExampleInput" >
                       </div>
                         <div class="form-group">
                           <label for="formGroupExampleInput">Descripción: </label>
