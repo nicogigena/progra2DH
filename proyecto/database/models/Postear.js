@@ -21,15 +21,19 @@ module.exports = function(sequelize, dataTypes){
         creacion: {
             type : dataTypes.INTEGER
         },
+        ubicacion: {
+            type : dataTypes.STRING
+        },
+        
 
     }
     let config = {
-        tableName : "postear",
+       tableName : "postear",
         timestamps : false
     }
 
     const Postear = sequelize.define(alias, cols, config);
-    return Postear
+    return Postear;
 
 
 }
