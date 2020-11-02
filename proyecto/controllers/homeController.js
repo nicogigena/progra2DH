@@ -36,18 +36,14 @@ let homeController = {
 
         storePost: function (req, res){
             
-            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
             let postear = {
-                usuario_id: idLogueado,
+                usuario_id: req.body.usuario_id,
                 url: req.body.url,
                 descripcion: req.body.descripcion,
                 ubicacion: req.body.ubicacion
             }
-            
-            //db.Postear.create(posteo);
           // return res.redirect('/home')
-          db.Postear.create(posteo);
-          
+            post.create(postear);   
           return res.redirect('/home')
 
         }
