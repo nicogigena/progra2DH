@@ -38,6 +38,16 @@ let homeController = {
             
             
             res.render('miPerfil', { datosUsuarios })
+        },
+
+        saludar: function(req, res){
+            usuario.findAll()
+            .then(function(usuario){
+                return res.render('headerLogueado', {usuario, user: req.session.user})
+            })
+            .catch(function(error){
+                console.log(error)
+            })
         }
         
     };
