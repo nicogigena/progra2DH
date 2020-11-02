@@ -1,6 +1,6 @@
 let db = require('../database/models')
 const post = db.Postear; 
-const usuario = db.Usuario;
+const users = db.Usuario;
 const op = db.Sequelize.Op 
 
 let homeController = {
@@ -11,8 +11,9 @@ let homeController = {
             {order: [['creacion', 'ASC']]}
             )
             .then(function(resultados){
-                usuario.findAll()
+                users.findAll()
                 .then(function(datos){
+                    //res.send(resultados)
                     return res.render('home', {datos: datos, resultados})
                 })
                 .catch(function(error){
@@ -30,18 +31,40 @@ let homeController = {
             
             
             
-            res.render('agregarPost', { datosUsuarios })
+            res.render('agregarPost', {  })
         },
+        storePost: function (req, res){
+            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
+            let postear = {
+                usuario_id: idLogueado,
+                url: req.body.url,
+                descripcion: req.body.descripcion,
+                ubicacion: req.body.ubicacion
+            }
+            post.create(postear);
+            return res.redirect('/home')
+            //return res.send(register)
+        }
+        ,
         
         miPerfil: function(req, res){
+            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
+            users.findOne({
+                where: [{ id: idLogueado}] 
+             })
+                .then(function(resultados){
+                    //return res.send(resultados)
+                    return res.render('miPerfil', {resultados})
+                })
+
             
-            
-            
-            res.render('miPerfil', { datosUsuarios })
+            //res.render('miPerfil', { datosUsuarios })
         },
 
         saludar: function(req, res){
-            usuario.findAll()
+            
+
+            users.findAll()
             .then(function(usuario){
                 return res.render('headerLogueado', {usuario, user: req.session.user})
             })

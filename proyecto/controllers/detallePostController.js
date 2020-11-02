@@ -4,15 +4,21 @@ const op = db.Sequelize.Op
 
 let detalleController = {
     index: function(req, res){       
-            post.findAll()
-            .then(function(resultados){
-                console.log(resultados);
-                return res.render('detallePost', {resultados: resultados})
+        res.render("No hay foto con ese ID")
+    },
+    porId: function(req, res){       
+        let primaryKey = req.params.id;
+                //Me falta la relación entre el id de la foto y todos los datos del usuario que subió la foto
+        post.findByPk(primaryKey)
+            .then( function (resultados){
+                console.log(resultados)
+
+                return res.render('detallePost', { resultados });
             })
-            .catch(function(error){
-                console.log(error)
+            .catch(function (error) {
+                console.log(error);
             })
-    }
+}
     
     };
     
