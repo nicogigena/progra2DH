@@ -21,7 +21,6 @@ let indexController ={
         }
         users.create(register);
         return res.redirect('/login')
-        //return res.send(register)
     }
     
     
