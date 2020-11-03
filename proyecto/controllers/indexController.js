@@ -24,7 +24,7 @@ let indexController ={
         //return res.send(register)
     },
     redirect: function (req,res){
-        let logueado = 0
+        let logueado = 1
         if (logueado==1){ 
             return res.redirect("/home") 
         } else {

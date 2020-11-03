@@ -24,11 +24,12 @@ module.exports = function(sequelize, dataTypes){
         ubicacion: {
             type : dataTypes.STRING
         },
+        
 
     }
 
     let config = {
-        tableName : "postear",
+       tableName : "postear",
         timestamps : false
     }
 

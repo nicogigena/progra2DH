@@ -26,6 +26,9 @@ let loginController = {
           //coinciden las contraseñas?
          else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
             //guardar en session los datos del usuario
+
+            req.session.user = user;
+            //return res.send(req.session.user)
            console.log(user);
             // req.session.user = user.email
              return res.redirect('/home');

@@ -40,22 +40,25 @@ let homeController = {
         
         agregarPost: function(req, res){
             
-            
-            
-            res.render('agregarPost', {  })
+            return res.render('agregarPost')
+
+
         },
+
         storePost: function (req, res){
-            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
+            
             let postear = {
-                usuario_id: idLogueado,
+                usuario_id: req.body.usuario_id,
                 url: req.body.url,
                 descripcion: req.body.descripcion,
                 ubicacion: req.body.ubicacion
             }
-            post.create(postear);
-            return res.redirect('/home')
-            //return res.send(register)
+          // return res.redirect('/home')
+            post.create(postear);   
+          return res.redirect('/home')
+
         }
+        
         ,
         
         miPerfil: function(req, res){
