@@ -1,5 +1,6 @@
-module.exports = function(sequelize, dataTypes){
+const Comentario = require("./Comentario");
 
+module.exports = function(sequelize, dataTypes){
 
     let alias = "Postear"
     let cols = {
@@ -12,7 +13,6 @@ module.exports = function(sequelize, dataTypes){
             type : dataTypes.INTEGER
         },
         url: {
-        
             type : dataTypes.STRING
         },
         descripcion: {
@@ -21,14 +21,31 @@ module.exports = function(sequelize, dataTypes){
         creacion: {
             type : dataTypes.INTEGER
         },
+        ubicacion: {
+            type : dataTypes.STRING
+        },
 
     }
+
     let config = {
         tableName : "postear",
         timestamps : false
     }
 
     const Postear = sequelize.define(alias, cols, config);
+    
+    Postear.associate = function(models){
+        Postear.hasMany(models.Comentario, {
+            foreignKey: 'post_id',
+            as: 'comentario'
+        }),
+        Postear.belongsTo(models.Usuario, {
+            foreignKey: 'usuario_id',
+            as: 'usuario'
+        })
+    }
+
+
     return Postear
 
 

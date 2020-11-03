@@ -44,7 +44,10 @@
                                 <img class="foto-perfil" src="" alt="">
                             </div>
                             <h4>
-                                <%= datos[resultados[index].usuario_id].nombre %> 
+                                <% if(resultados[index].usuario){ %> 
+                                <%= resultados[index].usuario.nombre  %> 
+                                <% } %> 
+                                <!-- <%= // datos[resultados[index].usuario_id].nombre %> -->
                             </h4>
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
@@ -58,7 +61,7 @@
                                 </li>
                             </ul>
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><%= datos[resultados[index].usuario_id].nombre %> </h5>
+                                <!-- <h5 class="uk-width-1-6"><%= //datos[resultados[index].usuario_id].nombre %> </h5> -->
                                 <p class="uk-width-5-6"><%= resultados[index].descripcion %></p>
                             </div>
                         </div>

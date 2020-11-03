@@ -8,18 +8,29 @@ let homeController = {
     index: function(req, res){
         
         post.findAll(
-            {order: [['creacion', 'ASC']]}
-            )
-            .then(function(resultados){
-                users.findAll()
-                .then(function(datos){
-                    //res.send(resultados)
-                    return res.render('home', {datos: datos, resultados})
-                })
-                .catch(function(error){
-                    console.log(error)
-                })
+            {
+                include: [
+                    {
+                        association: "usuario"
+                    },
+                    {
+                        association: "comentario"
+                    }
+                ],
+                order : [['creacion', 'ASC']]
             })
+            
+             .then(function(resultados){
+               // users.findAll()
+                //.then(function(datos){
+                    //return res.send(resultados)
+                    return res.render('home', {resultados:resultados})
+                    //return res.render('home', {datos: datos, resultados})
+                })
+                /* .catch(function(error){
+                    console.log(error)
+                }) 
+            }) */
         
         .catch(function(error){
             console.log(error)
