@@ -25,6 +25,11 @@
 
             <% for(let i=0; i<resultados.length; i++){ %> 
                 <br>
+                <h4>
+                    <% if(resultados[i].usuario){ %> 
+                    <%= resultados[i].usuario.nombre  %> 
+                    <% } %> 
+                </h4>
                 <li> 
                     <a href="/detallePost/<%= resultados[i].id %>"> <img class="imagen-post" src="<%=  resultados[i].url %>" alt="">  <br> <%=  resultados[i].descripcion  %></a>
                 </li>

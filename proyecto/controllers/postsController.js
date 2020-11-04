@@ -14,7 +14,15 @@ let postsController = {
         order: [
             ['creacion', 'ASC']
         ],
-        limit: 10
+        limit: 10,
+        include: [
+            {
+                association: "usuario"
+            },
+            {
+                association: "comentario"
+            }
+        ],
     })
     .then(function(resultados){
         console.log(resultados);
