@@ -35,7 +35,10 @@ module.exports = function(sequelize, dataTypes){
         apellido: {
             allowNull : false,
             type : dataTypes.STRING
-        }
+        },
+        fotoPerfil: {
+            type : dataTypes.STRING
+        },
     }
     let config = {
         tableName : "usuarios",
