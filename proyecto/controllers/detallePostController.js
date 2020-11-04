@@ -1,5 +1,6 @@
 const db = require('../database/models')
 const post = db.Postear; 
+const users = db.Usuario;
 const op = db.Sequelize.Op
 
 let detalleController = {
