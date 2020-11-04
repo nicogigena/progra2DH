@@ -17,7 +17,7 @@ let homeController = {
                         association: "comentario"
                     }
                 ],
-                order : [['creacion', 'ASC']]
+                order : [['creacion', 'DESC']]
             })
             
              .then(function(resultados){
