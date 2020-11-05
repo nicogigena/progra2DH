@@ -48,7 +48,7 @@ let homeController = {
         storePost: function (req, res){
             
             let postear = {
-                usuario_id: req.body.usuario_id,
+                usuario_id: req.session.user.id,
                 url: req.body.url,
                 descripcion: req.body.descripcion,
                 ubicacion: req.body.ubicacion
