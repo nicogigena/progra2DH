@@ -43,12 +43,13 @@ app.use('/buscadorPosts', postsRouter);
 
 
 app.use(function(req, res, next){
+  console.info("====== si sessión. Primer middleware: ", req.session.user != undefined);
   if(req.session.user != undefined){
-//locals me deja disponible datos en todas las vistas
-  res.locals.user = req.session.user 
-}
-  return next();
-
+    //locals me deja disponible datos en todas las vistas.
+    res.locals.user = req.session.user
+    return next();
+  }
+    return next();
 });
 
 // catch 404 and forward to error handler
