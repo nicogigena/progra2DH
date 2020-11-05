@@ -17,13 +17,13 @@ let homeController = {
                         association: "comentario"
                     }
                 ],
-                order : [['creacion', 'DESC']]
+                order : [['creacion', 'ASC']]
             })
 
              .then(function(resultados){
                // users.findAll()
                 //.then(function(datos){
-                    //return res.send(resultados)
+                    // return res.send(resultados)
                     return res.render('home', {resultados:resultados})
                     //return res.render('home', {datos: datos, resultados})
                 })
