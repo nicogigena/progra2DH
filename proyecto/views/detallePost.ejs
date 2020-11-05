@@ -43,7 +43,11 @@
                     <article class="uk-width-1-3 uk-flex uk-flex-column comentarios-detalle">
                         <div class="info-post uk-flex uk-flex-middle">
                             <img src="https://via.placeholder.com/35" alt="Foto del usuario">
-                            <h3><%= resultados.usuario_id %> </h3>
+                            <h3>
+                                <% if(resultados.usuario){ %> 
+                                <%= resultados.usuario.nombre  %> 
+                                <% } %> 
+                            </h3>
                         </div>
                         <div class="lista-comentarios" >
                             <div class="comentario uk-flex uk-flex-middle uk-margin-small-top">
@@ -145,6 +149,13 @@
                               <button class="uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
                             </form>
                         </div>
+                        <form action="/detallePost/editar/<%= resultados.id %> " method="GET">
+                            <button type="submit">Editar</button>
+                        </form>
+                        <form action="/detallePost/ <%= resultados.id %> " method="POST">
+                            <button type="submit">Borrar</button>
+                        </form>
+
                     </article>
                 </section>
             </div>

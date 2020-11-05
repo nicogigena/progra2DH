@@ -19,7 +19,7 @@ let homeController = {
                 ],
                 order : [['creacion', 'DESC']]
             })
-            
+
              .then(function(resultados){
                // users.findAll()
                 //.then(function(datos){

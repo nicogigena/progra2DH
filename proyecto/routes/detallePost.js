@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var detalleController = require('../controllers/detallePostController')
+var detallePostController = require('../controllers/detallePostController')
 
 /* GET home page. */
-router.get('/', detalleController.index);
-router.get('/:id', detalleController.porId);
-
+router.get('/', detallePostController.index);
+router.get('/:id', detallePostController.porId);
+router.post('/:id',detallePostController.destroy);
+router.get('/editar/:id', detallePostController.edit);
+router.post('/editar/:id', detallePostController.update);
 
 module.exports = router;

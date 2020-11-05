@@ -10,7 +10,15 @@ let detalleController = {
     porId: function(req, res){       
         let primaryKey = req.params.id;
                 //Me falta la relación entre el id de la foto y todos los datos del usuario que subió la foto
-        post.findByPk(primaryKey)
+        post.findByPk(primaryKey, {
+            include: [
+        {
+            association: "usuario"
+        },
+        {
+            association: "comentario"
+        }
+    ]})
             .then( function (resultados){
                 console.log(resultados)
 
@@ -19,8 +27,52 @@ let detalleController = {
             .catch(function (error) {
                 console.log(error);
             })
+},
+edit: function (req,res){
+
+let idAEditar= req.params.id
+
+post.findByPk(idAEditar)
+
+.then ( function(postear){
+
+    return res.render("postEdit", {postear})
+})
+.catch(function (error) {
+    console.log(error);
+})
+
+;
+
+},
+destroy: function (req,res){
+    //necesitamos decirle donde va a borrar, sino va a borrar todos los posts de la base de datos
+    let idABorrar = req.params.id;
+    post.destroy({
+        where:{
+            id:idABorrar
+        }
+    })
+    return res.redirect('/home')
+},
+update: function (req,res){
+    //nos va a preguntar que queremos actualizar y donde.
+  
+
+    let postAActualizar = req.body
+    post.update( //lo que quiero actualizar
+        postAActualizar
+
+    ,{ //a donde lo quiero actualizar
+
+        where: { 
+            id: req.params.id
+         }
+
+    })
+return res.redirect("/home")
 }
-    
+
     };
     
     module.exports = detalleController
