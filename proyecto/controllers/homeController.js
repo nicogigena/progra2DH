@@ -22,7 +22,7 @@ let homeController = {
                         association: "comentario"
                     }
                 ], */
-                order : [['creacion', 'ASC']]
+                order : [['creacion', 'DESC']]
             })
 
              .then(function(resultados){
@@ -34,7 +34,7 @@ let homeController = {
 
                     ], */
                     //return res.send({resultados: resultados})
-                     return res.render('home', {resultados : resultados})
+                    return res.render('home', {resultados: resultados})
                    
                 })
                 // .then(function(datos){ 
@@ -78,7 +78,7 @@ let homeController = {
         ,
         
         miPerfil: function(req, res){
-            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
+            let idLogueado = req.session.user.id// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
             users.findOne({
                 where: [{ id: idLogueado}] 
              })
