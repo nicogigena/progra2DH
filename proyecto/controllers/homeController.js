@@ -62,7 +62,7 @@ let homeController = {
         ,
         
         miPerfil: function(req, res){
-            let idLogueado = 1// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
+            let idLogueado = req.session.user.id// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
             users.findOne({
                 where: [{ id: idLogueado}] 
              })

@@ -32,6 +32,16 @@ app.use(session(
 ));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next){
+  console.info("====== si sessión. Primer middleware: ", req.session.user != undefined);
+  if(req.session.user != undefined){
+    //locals me deja disponible datos en todas las vistas.
+    res.locals.user = req.session.user
+    return next();
+  }
+    return next();
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
@@ -42,15 +52,7 @@ app.use('/buscadorUsuarios', usuariosRouter);
 app.use('/buscadorPosts', postsRouter);
 
 
-app.use(function(req, res, next){
-  console.info("====== si sessión. Primer middleware: ", req.session.user != undefined);
-  if(req.session.user != undefined){
-    //locals me deja disponible datos en todas las vistas.
-    res.locals.user = req.session.user
-    return next();
-  }
-    return next();
-});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
