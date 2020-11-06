@@ -45,16 +45,6 @@ post.findByPk(idAEditar)
 ;
 
 },
-destroy: function (req,res){
-    //necesitamos decirle donde va a borrar, sino va a borrar todos los posts de la base de datos
-    let idABorrar = req.params.id;
-    post.destroy({
-        where:{
-            id:idABorrar
-        }
-    })
-    return res.redirect('/home')
-},
 update: function (req,res){
     //nos va a preguntar que queremos actualizar y donde.
   
@@ -70,7 +60,23 @@ update: function (req,res){
          }
 
     })
-return res.redirect("/home")
+    .then(function(req,res){
+        return res.redirect("/home")
+    })
+    .catch(function(error){
+        console.log(error)
+    })
+
+},
+destroy: function (req,res){
+    //necesitamos decirle donde va a borrar, sino va a borrar todos los posts de la base de datos
+    let idABorrar = req.params.id;
+    post.destroy({
+        where:{
+            id:idABorrar
+        }
+    })
+    return res.redirect('/home')
 }
 
     };
