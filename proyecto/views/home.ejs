@@ -38,6 +38,7 @@
             <div class="uk-container uk-container-large uk-flex">
                 <section id="posts" class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
                     <% for (let i = 0; i<resultados.length ; i++) {%>
+                       
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex">
                             <div>
@@ -64,18 +65,38 @@
                                 <p class="uk-width-5-6"><%= resultados[i].descripcion %></p>
                             </div>
                         </div>
+                        <div>
+                            Ubicación: 
+                        </div>
                         <div class="post-comentarios">
                             <h6>Comentarios</h6>
+
                             <ul>
+    
                                 <li>
-                                    <a href="">Usuario</a>
-                                    <p>Comentario</p>
+                                    <p>
+                                        <a href=""> <% if(resultados[i].comentario[0].usuario){ %> 
+                                        <%= resultados[i].comentario[0].usuario.nombre %> 
+                                        <% } %> </a>
+                                    </p>
+                                    <p>
+                                        <a href=""><% if(resultados[i].comentario[0]){ %> 
+                                            <%= resultados[i].comentario[0].texto %> 
+                                            <% } %> </a>
+                                        </p>
                                 </li>
                                 <li>
-                                    <a href=""><% if(resultados[i].comentario){ %> 
-                                        <%= resultados[i].comentario.nombre  %> 
+                                    
+                                    <p>
+                                        <a href=""> <% if(resultados[i].comentario[1].usuario){ %> 
+                                        <%= resultados[i].comentario[1].usuario.nombre %> 
                                         <% } %> </a>
-                                    <p>Comentario</p>
+                                    </p>
+                                    <p>
+                                    <a href=""><% if(resultados[i].comentario[1]){ %> 
+                                            <%= resultados[i].comentario[1].texto %> 
+                                            <% } %> </a>
+                                    </p>
                                 </li>
                                 <a href="/detallePost/<%= resultados[i].id %>">Ver más...</a>
                             </ul>

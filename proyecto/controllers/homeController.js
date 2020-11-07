@@ -11,26 +11,42 @@ let homeController = {
             {
                 include: [
                     {
+                        all: true, nested: true
+                    },
+                ],
+                /* include: [
+                    {
                         association: "usuario"
                     },
                     {
                         association: "comentario"
                     }
-                ],
+                ], */
                 order : [['creacion', 'DESC']]
             })
 
              .then(function(resultados){
-               // users.findAll()
-                //.then(function(datos){
-                    // return res.send(resultados)
-                    return res.render('home', {resultados:resultados})
-                    //return res.render('home', {datos: datos, resultados})
+               /* users.findAll({
+                    include: [
+                        {
+                            association: "comentario"
+                        }
+
+                    ], */
+                    //return res.send({resultados: resultados})
+                    return res.render('home', {resultados: resultados})
+                   
                 })
-                /* .catch(function(error){
-                    console.log(error)
-                }) 
-            }) */
+                // .then(function(datos){ 
+                    
+                   // return res.render('home', {resultados:resultados})
+                   //return res.send({datos: datos, resultados})
+                    //return res.render('home', {datos: datos, resultados})
+                // })
+                // .catch(function(error){
+                 //   console.log(error)
+               // }) 
+           // }) */
         
         .catch(function(error){
             console.log(error)
