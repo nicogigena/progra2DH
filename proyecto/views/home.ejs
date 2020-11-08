@@ -45,9 +45,9 @@
                                 <img class="foto-perfil" src="" alt="">
                             </div>
                             <h4>
-                                <% if(resultados[i].usuario){ %> 
-                                <%= resultados[i].usuario.nombre  %> 
-                                <% } %> 
+                                <a href="/detalleUsuario/<%= resultados[i].usuario.id %>"> <% if(resultados[i].usuario){ %> 
+                                    <%= resultados[i].usuario.nombre  %> 
+                                    <% } %> </a>
                             </h4>
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
@@ -76,7 +76,7 @@
                                 <li>
                                     <p>
                                         <a href=""> <% if(resultados[i].comentario[0].usuario){ %> 
-                                        <%= resultados[i].comentario[0].usuario.nombre %> 
+                                        <%= resultados[i].comentario[0].usuario.nombre %> :
                                         <% } %> </a>
                                     </p>
                                     <p>
@@ -89,7 +89,7 @@
                                     
                                     <p>
                                         <a href=""> <% if(resultados[i].comentario[1].usuario){ %> 
-                                        <%= resultados[i].comentario[1].usuario.nombre %> 
+                                        <%= resultados[i].comentario[1].usuario.nombre %> :
                                         <% } %> </a>
                                     </p>
                                     <p>
