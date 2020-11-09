@@ -12,7 +12,7 @@ let postsController = {
             {descripcion: { [op.like] : "%" + buscarPost + "%"}}
         ],
         order: [
-            ['creacion', 'ASC']
+            ['creacion', 'DESC']
         ],
         limit: 10,
         include: [
