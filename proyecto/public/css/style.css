@@ -81,4 +81,17 @@ h2 {
     font-family:  'Noto Sans', sans-serif !important;
 }
 
+.fotoPerfil {
+ width: 55px;
+}
+
+.fotoUsuario {
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+.foto-perfil {
+    width: 100px;
+    border-radius: 100%;
+}
 
