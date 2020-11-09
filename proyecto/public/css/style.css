@@ -93,4 +93,16 @@ h2 {
     width: 100px;
     border-radius: 100%;
 }
+.ubicacionHome{
+    font-weight: bold;
+    margin-left: 450px;
+    }
+
+.ubicacion{
+    font-weight: bold;
+}
+.descrpcion
+{text-align: center;
+}
+    
 
