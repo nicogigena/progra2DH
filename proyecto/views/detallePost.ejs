@@ -70,13 +70,15 @@
                               <button class="uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
                             </form>
                         </div>
+                        
                         <form action="/detallePost/editar/<%= resultados.id %> " method="GET">
                             <button type="submit">Editar</button>
                         </form>
-                        <form action="/detallePost/ <%= resultados.id %> " method="POST">
-                            <button type="submit">Borrar</button>
+                        <br>
+                        <form action="/detallePost/<%= resultados.id %> " method="POST">
+                            <button class="borrar" type="submit">Borrar</button>
                         </form>
-
+<br>
                     </article>
                 </section>
             </div>
