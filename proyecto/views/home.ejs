@@ -72,7 +72,6 @@
                             <h6>Comentarios</h6>
 
                             <ul>
-<<<<<<< HEAD
                                 <% if(resultados[i].comentario.length != 0){%>
                                     
                                         <li>
@@ -104,34 +103,6 @@
                                 <%}%>
 
 
-=======
-    
-                                <li>
-                                    <p>
-                                    <a href="/detalleUsuario/<% if(resultados[i].comentario[0]) { %> <%= resultados[i].comentario[0].usuario_id %> <% } %> "> <% if(resultados[i].comentario[0].usuario){ %> 
-                                        <%= resultados[i].comentario[0].usuario.nombre %>  <% } %> :
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href=""><% if(resultados[i].comentario[0]){ %> 
-                                            <%= resultados[i].comentario[0].texto %> 
-                                            <% } %> </a>
-                                        </p>
-                                </li>
-                                <li>
-                                    
-                                    <p>
-                                    <a href="/detalleUsuario/ <% if(resultados[i].comentario[1]){ %> <%= resultados[i].comentario[1].usuario_id %> <% } %> "> <% if(resultados[i].comentario[1].usuario){ %> 
-                                        <%= resultados[i].comentario[1].usuario.nombre %>  <% } %> :
-                                        </a>
-                                    </p>
-                                    <p>
-                                    <a href=""><% if(resultados[i].comentario[1]){ %> 
-                                            <%= resultados[i].comentario[1].texto %> 
-                                            <% } %> </a>
-                                    </p>
-                                </li>
->>>>>>> 141dd787f213cce116c53de64b3fbe394b098d53
                             <a href="/detallePost/<% if(resultados[i]){ %> <%= resultados[i].id %><% } %> ">Ver más...</a>
                             </ul>
                         </div>
