@@ -1,13 +1,22 @@
 const db = require('../database/models')
 const post = db.Postear; 
 const users = db.Usuario;
-const op = db.Sequelize.Op
+const coment = db.Comentario;
+const op = db.Sequelize.Op;
+const url = require('url');
+const querystring = require('querystring');
 
 let detalleController = {
     index: function(req, res){       
         res.render("No hay foto con ese ID")
     },
     porId: function(req, res){       
+        
+        //res.send(req.query.texto)
+        if(req.query.texto){
+            res.redirect("/detallepost/" + req.params.id + "/comentar?texto=" + req.query.texto)
+        }
+        
         let primaryKey = req.params.id;
                 //Me falta la relación entre el id de la foto y todos los datos del usuario que subió la foto
         post.findByPk(primaryKey, {
@@ -23,6 +32,21 @@ let detalleController = {
             .catch(function (error) {
                 console.log(error);
             })
+},
+comentar: function(req, res){
+                //Me falta la relación entre el id de la foto y todos los datos del usuario que subió la foto
+   
+    let comentar = {
+        post_id: req.params.id,
+        usuario_id: req.session.user.id,
+        texto: req.query.texto,
+        creacion: 0,
+    }
+              // return res.redirect('/home')
+    coment.create(comentar);   
+    return res.redirect('/detallePost/' + req.params.id)
+    
+
 },
 edit: function (req,res){
 

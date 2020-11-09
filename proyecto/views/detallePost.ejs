@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <%- include("./partials/headerDeslogueado.ejs") %>
+    <%- include("./partials/headerLogueado.ejs") %>
 
     <main>
         <div class="uk-section uk-section-xsmall">
@@ -70,12 +70,15 @@
                         <% } %> 
                             
                         </div>
-                        <div class="agregar-comentario uk-flex uk-flex-middle">
-                            <form action="" class="uk-text-center">
-                              <input type="text" class="uk-input" placeholder="Agregar comentario"> 
-                              <button class="uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
-                            </form>
-                        </div>
+                        <% if (locals.user) {%>
+                            <div class="agregar-comentario uk-flex uk-flex-middle">
+                                <form action="/detallePost/<%= resultados.id %>" class="uk-text-center" method="GET">
+                                  <input name="texto" type="text" class="uk-input" placeholder="Agregar comentario"> 
+                                  <button class="uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
+                                </form>
+                            </div>
+                        <%}%>
+ 
                         <br>
                         
                         <form action="/detallePost/editar/<%= resultados.id %> " method="GET">

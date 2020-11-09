@@ -30,7 +30,7 @@ let loginController = {
             req.session.user = user;
 
             if(req.body.rememberme != undefined){
-                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5 });
+                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
                 return res.redirect('/home');
             }
             //return res.send(req.session.user)
