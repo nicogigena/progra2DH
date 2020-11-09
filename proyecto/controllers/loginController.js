@@ -28,8 +28,12 @@ let loginController = {
             //guardar en session los datos del usuario
 
             req.session.user = user;
+
+            if(req.body.rememberme != undefined){
+                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 5 });
+                return res.redirect('/home');
+            }
             //return res.send(req.session.user)
-           console.log(user);
             // req.session.user = user.email
              return res.redirect('/home');
         }
