@@ -39,6 +39,15 @@ module.exports = function(sequelize, dataTypes){
         fotoPerfil: {
             type : dataTypes.STRING
         },
+        seguidos: {
+            type : dataTypes.INTEGER
+        },
+        seguidores: {
+            type : dataTypes.INTEGER
+        },
+        posts: {
+            type : dataTypes.INTEGER
+        },
     }
     let config = {
         tableName : "usuarios",
