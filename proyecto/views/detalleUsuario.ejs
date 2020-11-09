@@ -50,9 +50,9 @@
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
-                                <li>100 posts</li>
-                                <li>200 seguidores</li>
-                                <li>300 seguidos</li>
+                            <li>Posts: <% if(resultados) { %><%= resultados.posts %> <% } %>  </li>
+                            <li>Seguidores: <% if(resultados) { %><%= resultados.seguidores %> <% } %>  </li>
+                            <li>Seguidos: <% if(resultados) { %><%= resultados.seguidos %> <% } %>  </li>
                             </ul>
                         </div>
                     </div>
