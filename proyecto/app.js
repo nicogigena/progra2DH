@@ -13,6 +13,8 @@ var detallePostRouter = require('./routes/detallePost');
 var detalleUsuarioRouter = require('./routes/detalleUsuario');
 var usuariosRouter = require('./routes/buscadorUsuarios')
 var postsRouter = require('./routes/buscadorPosts');
+var logoutRouter = require('./routes/logout');
+const db = require('./database/models');
 
 
 var app = express();
@@ -32,8 +34,24 @@ app.use(session(
 ));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
+
 app.use(function(req, res, next){
-  console.info("====== si sessión. Primer middleware: ", req.session.user != undefined);
+//Si hay cookie y no hay session:
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    db.Usuario.findByPk(req.cookies.userId) //Encontrá este usuario
+      .then(user=>{
+        req.session.user = user; 
+        res.locals.user = req.session.user; //Envialo a locals y a session
+        return next()
+      })
+  }
+  return next()
+})
+
+app.use(function(req, res, next){
   if(req.session.user != undefined){
     //locals me deja disponible datos en todas las vistas.
     res.locals.user = req.session.user
@@ -41,6 +59,7 @@ app.use(function(req, res, next){
   }
     return next();
 });
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -50,7 +69,7 @@ app.use('/detallePost', detallePostRouter);
 app.use('/detalleUsuario', detalleUsuarioRouter);
 app.use('/buscadorUsuarios', usuariosRouter);
 app.use('/buscadorPosts', postsRouter);
-
+app.use('/logout', logoutRouter);
 
 
 
