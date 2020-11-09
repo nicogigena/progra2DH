@@ -12,17 +12,13 @@ let detalleController = {
                 //Me falta la relación entre el id de la foto y todos los datos del usuario que subió la foto
         post.findByPk(primaryKey, {
             include: [
-        {
-            association: "usuario"
-        },
-        {
-            association: "comentario"
-        }
-    ]})
-            .then( function (resultados){
-                console.log(resultados)
-
-                return res.render('detallePost', { resultados });
+                {
+                    all: true, nested: true
+                },
+            ]})
+            .then(function(resultados){
+                //return res.send(resultados)
+                return res.render('detallePost', { resultados : resultados });
             })
             .catch(function (error) {
                 console.log(error);

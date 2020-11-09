@@ -75,7 +75,7 @@
     
                                 <li>
                                     <p>
-                                        <a href=""> <% if(resultados[i].comentario[0].usuario){ %> 
+                                        <a href="/detalleUsuario/<%= resultados[i].comentario[0].usuario_id %>"> <% if(resultados[i].comentario[0].usuario){ %> 
                                         <%= resultados[i].comentario[0].usuario.nombre %> :
                                         <% } %> </a>
                                     </p>
@@ -88,7 +88,7 @@
                                 <li>
                                     
                                     <p>
-                                        <a href=""> <% if(resultados[i].comentario[1].usuario){ %> 
+                                        <a href="/detalleUsuario/<%= resultados[i].comentario[1].usuario_id %>"> <% if(resultados[i].comentario[1].usuario){ %> 
                                         <%= resultados[i].comentario[1].usuario.nombre %> :
                                         <% } %> </a>
                                     </p>
