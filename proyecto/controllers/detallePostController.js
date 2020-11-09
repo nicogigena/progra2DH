@@ -17,7 +17,7 @@ let detalleController = {
                 },
             ]})
             .then(function(resultados){
-                //return res.send(resultados)
+            //return res.send(resultados)
                 return res.render('detallePost', { resultados : resultados });
             })
             .catch(function (error) {

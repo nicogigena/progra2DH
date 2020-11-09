@@ -6,5 +6,4 @@ var detalleController = require('../controllers/detalleUsuarioController')
 router.get('/:id', detalleController.index);
 
 
-
 module.exports = router;
