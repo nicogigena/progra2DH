@@ -50,7 +50,7 @@
                                     <% } %> </a>
                             </h4> 
                         <br><br>
-                        <p style="margin-left:450px";>Ubicación: <% if(resultados[i]) { %> <%= resultados[i].ubicacion %><% } %> </p>
+                        <p class="ubicacionHome">Ubicación: <% if(resultados[i]) { %> <%= resultados[i].ubicacion %><% } %> </p>
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
                         <img src="<% if(resultados[i]){ %> <%= resultados[i].url %> <% } %> " alt="">
@@ -62,9 +62,9 @@
                             <li><a href="/detallePost/<% if(resultados[i]) { %> <%= resultados[i].id %><% } %> "> <span class="" uk-icon="icon:comments; ratio: 1.3"></a></span>
                                 </li>
                             </ul>
-                            <div class="post-pie uk-flex">
+                            <div class="descripcion">
                                 <!-- <h5 class="uk-width-1-6"><%= //datos[resultados[index].usuario_id].nombre %> </h5> -->
-                            <p class="uk-width-5-6"><% if(resultados[i]) { %> <%= resultados[i].descripcion %><% } %> </p>
+                            <p><% if(resultados[i]) { %> <%= resultados[i].descripcion %><% } %> </p>
  
                             </div>
                         </div>

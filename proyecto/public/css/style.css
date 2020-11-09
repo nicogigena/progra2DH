@@ -80,5 +80,11 @@ h2 {
     color: #65207a;
     font-family:  'Noto Sans', sans-serif !important;
 }
-
+.ubicacionHome{
+font-weight: bold;
+margin-left: 450px;
+}
+.ubicacion{font-weight: bold;}
+.descrpcion{text-align: center;
+}
 
