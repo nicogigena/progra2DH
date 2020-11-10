@@ -80,7 +80,7 @@ update: function (req,res){
          }
 
     })
-    .then(function(req,res){
+    .then(function(){
         return res.redirect("/home")
     })
     .catch(function(error){
