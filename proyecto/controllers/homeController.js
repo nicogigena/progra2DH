@@ -79,13 +79,12 @@ let homeController = {
         
         miPerfil: function(req, res){
             let idLogueado = req.session.user.id// Despues definir por usuario loggeado, falta la relación entre usuario y sus posteos
-            users.findOne({
-                where: [{ id: idLogueado}] 
-             })
-                .then(function(resultados){
+            let usuarioProm = users.findOne({where: [{ id: idLogueado}]})
+            let postProm = post.findAll({where: [{usuario_id : idLogueado}] })
+            Promise.all([usuarioProm, postProm])
+                .then(function([usuario, posteos]){
                     //return res.send(resultados)
-                    console.log(req.session.user)
-                    return res.render('miPerfil', {resultados})
+                    return res.render('miPerfil', {resultados: usuario, posteos: posteos})
                 })
 
             

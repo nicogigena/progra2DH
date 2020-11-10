@@ -17,7 +17,8 @@ let indexController ={
             ciudad: req.body.ciudad,
             cp: req.body.cp,
             nombre: req.body.nombre,
-            apellido: req.body.apellido
+            apellido: req.body.apellido,
+            fotoPerfil: req.body.fotoPerfil
         }
         users.create(register);
         return res.redirect('/login')

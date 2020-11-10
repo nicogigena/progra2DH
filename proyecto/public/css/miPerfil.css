@@ -16,3 +16,8 @@
     color: gray;
     text-decoration: none;
 }
+
+img.foto-cont-miPerfil {
+    width: 100%;
+    border-radius: 0;
+}
