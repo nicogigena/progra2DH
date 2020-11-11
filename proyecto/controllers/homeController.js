@@ -102,7 +102,7 @@ let homeController = {
                 console.log(error)
             })
         }
-        
+
     };
     
     module.exports = homeController

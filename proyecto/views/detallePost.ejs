@@ -80,15 +80,19 @@
                         <%}%>
  
                         <br>
-                        
-                        <form action="/detallePost/editar/<%= resultados.id %> " method="GET">
+                        <% if (locals.user && resultados.usuario_id == locals.user.id){ %> 
+                            <form action="/detallePost/editar/<%= resultados.id %> " method="GET">
                             <button type="submit">Editar</button>
                         </form>
                         <br>
                         <form action="/detallePost/<%= resultados.id %> " method="POST">
                             <button class="borrar" type="submit">Borrar</button>
                         </form>
-<br>
+
+                        <%    }  %> 
+                        
+                    
+                     
                     </article>
                 </section>
             </div>
