@@ -22,7 +22,7 @@ let loginController = {
              return res.send("Email incorrecto")
          }
          else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)==false){
-             return res.send("Contraseña equivocada")
+             return res.send("Contraseña incorrecta")
          }
           //coinciden las contraseñas?
          else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
