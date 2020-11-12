@@ -2,11 +2,20 @@ const db = require('../database/models')
 const op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 const users = db.Usuario;
+const preguntas = db.Pregunta;
 
 let indexController ={
     index: function(req, res){
-    
-        return res.render('registracion');
+        preguntas.findAll({
+            order: [["id", "ASC"]]
+        })
+            .then(resultados=>{
+                return res.render("registracion", {resultados: resultados})
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+        
     },
     store: function (req, res){
         let register = {
@@ -18,7 +27,9 @@ let indexController ={
             cp: req.body.cp,
             nombre: req.body.nombre,
             apellido: req.body.apellido,
-            fotoPerfil: req.body.fotoPerfil
+            fotoPerfil: req.body.fotoPerfil,
+            pregunta_id: req.body.pregunta,
+            pregunta_res: req.body.respuesta
         }
         users.create(register);
         return res.redirect('/login')
