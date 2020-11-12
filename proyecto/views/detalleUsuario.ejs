@@ -65,7 +65,13 @@
                             <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                             <a href="/detallePost/<% if(resultados.postear[i]) { %> <%= resultados.postear[i].id %> <% } %>" class="link-detalle">
                                     <img src="<%= resultados.postear[i].url %> " alt="" class="">
-                                    <p class="uk-text-center"><%= resultados.postear[i].descripcion %> </p>
+                                    <p class="uk-text-center">
+                                        <% if(resultados.postear[i].descripcion.length >= 20){%>
+                                            <%= resultados.postear[i].descripcion.substr(0,20) + "..."%>
+                                        <%} else {%>
+                                            <%=resultados.postear[i].descripcion%>
+                                        <%} %>
+                                    </p>
                                 </a>
                             </div>
                          <%}%>
