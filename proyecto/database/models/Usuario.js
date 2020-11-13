@@ -48,6 +48,12 @@ module.exports = function(sequelize, dataTypes){
         posts: {
             type : dataTypes.INTEGER
         },
+        pregunta_id: {
+            type : dataTypes.INTEGER
+        },
+        pregunta_res: {
+            type : dataTypes.STRING
+        },
     }
     let config = {
         tableName : "usuarios",
@@ -64,6 +70,10 @@ module.exports = function(sequelize, dataTypes){
         Usuario.hasMany(models.Comentario, {
             foreignKey: 'usuario_id',
             as: 'comentario'
+        }),
+        Usuario.belongsTo(models.Pregunta, {
+            foreignKey: 'pregunta_id',
+            as: 'pregunta'
         })
     }
 

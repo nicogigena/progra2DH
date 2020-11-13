@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mediagram</title>
@@ -10,10 +10,10 @@
         href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
         type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/agregarPost.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/general.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/general.css">
 
     <!-- UiKit -->
     <!-- <link rel="stylesheet" href="css/uikit.min.css">
@@ -35,33 +35,29 @@
 
     <main>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex uk-flex-center uk-flex-middle" >
-                <form action="/home/agregarPost" method="POST">
-                    <h2 style="font-family:modeka;">Agregar post</h2>
-                    <br><br><br>
-                     <div class="form-group">
-                        <label for="formGroupExampleInput">Link: </label>
-                        <input name="url" type="url" class="form-control" id="formGroupExampleInput">
-                      </div>
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+
+                   
+                    
+                    <form action="/login/forgot" method="POST">
+                        <h2>Login</h2><br><br><br>
                         <div class="form-group">
-                          <label for="formGroupExampleInput">Descripción: </label>
-                          <input name="descripcion" type="text" class="form-control" id="formGroupExampleInput" >
+                          <label for="exampleInputEmail1">Correo electrónico</label>
+                          <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <small id="emailHelp" class="form-text text-muted">
+                            Nunca compartiremos su correo electrónico con nadie más.</small>
                         </div>
-                        <div class="form-group">
-                          <label for="formGroupExampleInput2">Ubicación:</label>
-                          <input name="ubicacion" type="text" class="form-control" id="formGroupExampleInput2" >
-                        </div>
-                          <button type="submit" class="btn btn-primary" id=botonSignIn>Postear</button>
+                        <button type="submit" class="btn btn-primary" id=botonSignIn>Continuar</button>
                       </form>
                 
-
+                
                 </form>
-
             </div>
         </div>
     </main>
-    
+
     <%- include("./partials/footer.ejs") %>
+
 </body>
 
 </html>
