@@ -14,7 +14,8 @@ let detalleUsuarioController ={
                         all: true, nested: true
                     },
                 ],
-            })
+               
+            },)
 
              .then(function(resultados){
                  //return res.send(resultados)
