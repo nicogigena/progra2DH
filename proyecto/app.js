@@ -40,25 +40,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
 //Si hay cookie y no hay session:
-  if(req.cookies.userId != undefined && req.session.user == undefined){
-    db.Usuario.findByPk(req.cookies.userId) //Encontrá este usuario
+  if(req.cookies.userId && !req.session.user){ //Si hay Cookie y no hay Session
+    db.Usuario.findByPk(req.cookies.userId) //Encontrá al usuario de la cookie
       .then(user=>{
-        req.session.user = user; 
-        res.locals.user = req.session.user; //Envialo a locals y a session
+        req.session.user = user; //Envialo a la session
+        res.locals.user = user; //Despues envialo a locals
         return next()
       })
-  }
-  return next()
-})
-
-app.use(function(req, res, next){
-  if(req.session.user != undefined){
-    //locals me deja disponible datos en todas las vistas.
+  } else if (req.session.user){//Si hay Session (no importa por qué) Envialo a locals
     res.locals.user = req.session.user
     return next();
   }
-    return next();
-});
+  return next()
+})
 
 
 app.use('/', indexRouter);
