@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediagram</title>
+    <link rel="icon"
+        href="https://w7.pngwing.com/pngs/624/811/png-transparent-computer-icons-facebook-social-media-f-logo-cross-brand.png"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/registracion.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/general.css">
+
+    <!-- UiKit -->
+    <!-- <link rel="stylesheet" href="css/uikit.min.css">
+    <script src="js/uikit-icons.min.js"></script>
+    <script src="js/uikit.min.js"></script> -->
+    <!-- UiKit -->
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <%- include("./partials/headerLogueado.ejs") %>
+    
+    <main>
+      
+      
+        <div class="uk-section uk-section-small">
+          
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+           
+             
+                <form action="/home/miPerfil/edit" method="POST">
+                  <h2>¡Registrate!</h2>
+                  <br><br><br>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nombre</label>
+                        <input value="<%=locals.user.nombre%>" name="nombre" type="text" class="form-control" id="inputName" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Apellido</label>
+                        <input value="<%=locals.user.apellido%>" name="apellido" type="text" class="form-control" id="inputApellido" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Correo electrónico</label>
+                        <input value="<%=locals.user.email%>" name="email" type="email" class="form-control" id="inputEmail4" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">Foto de perfil</label>
+                        <input value="<%=locals.user.fotoPerfil%>" name="fotoPerfil" type="url" class="form-control" id="inputBirth" required>
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label for="inputAddress">Dirección</label>
+                      <input value="<%=locals.user.direccion%>" name="direccion" type="text" class="form-control" id="inputAddress" required>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">Ciudad</label>
+                        <input value="<%=locals.user.ciudad%>" name="ciudad" type="text" class="form-control" id="inputCity" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputZip">Código postal</label>
+                        <input value="<%=locals.user.cp%>" name="cp" type="text" class="form-control" id="inputCp" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <div class="form-group">
+                        <label for="inputAddress"><%= resultados.pregunta.pregunta%></label>
+                        <input placeholder="Complete este campo para efectuar el cambio" value="" name="respuesta" type="text" class="form-control" id="inputAddress" required>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassword4">Contraseña</label>
+                      <input placeholder="Complete este campo para efectuar el cambio" value="" name="contraseña" type="password" class="form-control" id="inputPassword4" required>
+                    </div>
+                    <% if (query.status == "email") {%>
+                      El email no está disponible
+                      <%}%>
+                    <% if (query.status == "fail") {%>
+                      Revise sus datos
+                      <%}%>
+                  </div>
+                    <button type="submit" class="btn btn-primary" id=botonSignIn>Editar usuario</button>
+                </form>
+
+
+            </div>
+        </div>
+    </main>
+
+    <%- include("./partials/footer.ejs") %>
+
+
+</body>
+
+</html>

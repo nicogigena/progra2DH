@@ -12,37 +12,39 @@ let loginController = {
     login: function (req, res){
         //encontrar el email
         //Chequear que la contraseña coincida.
-     users.findOne({
-        where: [{ email: req.body.email}]
-     })
+    if (req.session.user) {
+        res.redirect("/home")
+    }
+        users.findOne({
+            where: [{ email: req.body.email}]
+        })
 
-     .then(function(user){
-         // puede pasar que el email no este en la base de datos
-         if (user == null){
-             return res.send("Email incorrecto")
-         }
-         else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)==false){
-             return res.send("Contraseña incorrecta")
-         }
-          //coinciden las contraseñas?
-         else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
-            //guardar en session los datos del usuario
+        .then(function(user){
+            // puede pasar que el email no este en la base de datos
+            if (user == null){
+                return res.send("Email incorrecto")
+            }
+            else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)==false){
+                return res.send("Contraseña incorrecta")
+            }
+            //coinciden las contraseñas?
+            else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
+                //guardar en session los datos del usuario
 
-            req.session.user = user;
+                req.session.user = user;
 
-            if(req.body.rememberme != undefined){
-                res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
+                if(req.body.rememberme != undefined){
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
+                    return res.redirect('/home');
+                }
+                //return res.send(req.session.user)
+                // req.session.user = user.email
                 return res.redirect('/home');
             }
-            //return res.send(req.session.user)
-            // req.session.user = user.email
-             return res.redirect('/home');
-        }
-     })
-
-     .catch(function(error){
-         console.log(error)
-     })
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     },
     email:function(req, res){
         return res.render("forgot")
@@ -67,7 +69,7 @@ let loginController = {
     forgotIdPost:function(req, res){
         users.findByPk(req.params.id)
             .then(resultados=>{
-                if (resultados.pregunta_res == req.body.respuesta) {
+                if (bcrypt.compareSync(req.body.respuesta, resultados.pregunta_res)){
                     users.update({
                         contraseña: bcrypt.hashSync(req.body.newPass, 10)}, {
                         where:[{id: req.params.id}]
@@ -77,6 +79,7 @@ let loginController = {
                     return res.redirect("/login/forgot/" + req.params.id + "?status=fail")
                 }
             })
+        
 
 
         //return res.redirect("/login")

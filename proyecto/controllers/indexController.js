@@ -18,6 +18,9 @@ let indexController ={
         
     },
     store: function (req, res){
+        if (req.session.user) {
+            res.redirect("/home")
+        }
         let register = {
             email: req.body.email,
             contraseña: bcrypt.hashSync(req.body.contraseña, 10),
@@ -29,7 +32,7 @@ let indexController ={
             apellido: req.body.apellido,
             fotoPerfil: req.body.fotoPerfil,
             pregunta_id: req.body.pregunta,
-            pregunta_res: req.body.respuesta
+            pregunta_res: bcrypt.hashSync(req.body.respuesta, 10)
         }
         users.create(register);
         return res.redirect('/login')

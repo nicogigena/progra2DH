@@ -42,8 +42,29 @@
                     </div>
                     <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                         <div class="uk-flex uk-flex-middle">
-                            <h3 class="uk-margin-remove"><%= locals.user.nombre %></h3>
-                            <a href="" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>
+                            
+                            <% if(query.edit != "true"){%>
+                                <h3 class="uk-margin-remove"><%= locals.user.nombre %></h3>
+                                <a id="boton-edit" href="/home/miPerfil?edit=true" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>
+                            <%} else{%>
+                                <form action="/home/miPerfil" method="POST">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <input type="text" name="nombreNew" id="" value="<%= locals.user.nombre%>">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit">A</button>
+                                    </div>
+                                </form>
+                                <form action="/home/miPerfil" method="POST">
+                                    <div class="form-group">
+                                        <button type="submit" value="1" name="rechazar">R</button>
+                                    </div>
+                                </form>
+                                    
+                                </div>
+                            <%} %>
+                            
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
@@ -51,7 +72,7 @@
                                 <li>200 seguidores</li>
                                 <li>300 seguidos</li>
                             </ul>
-                            <form action="" method="POST">
+                            <form action="/home/miPerfil/edit">
                             <button>Editar</button>
                             </form>
                         </div>
@@ -61,7 +82,7 @@
 
                 <section class="muro uk-flex uk-flex-middle uk-flex-center">
                     <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                        <% for (let index = 0; index < posteos.length; index++) {%>
+                        <% for (let index = 0; index < resultados.postear.length; index++) {%>
                             <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                                 <a href="/detallePost/<%= posteos[index].id%>" class="link-detalle">
                                     <img src="<%= posteos[index].url%>" alt="foto de perfil" class="foto-cont-miPerfil">
