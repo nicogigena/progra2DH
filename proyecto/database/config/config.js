@@ -1,11 +1,7 @@
 module.exports = {
   "development": {
    "username": "root",
-<<<<<<< HEAD
-   //"password": "root",
-=======
    // "password": "root",
->>>>>>> f2928c4b10ff0b0b06a76f02bbc045586e805dba
     "database": "proyectodh",
     "host": "127.0.0.1",
     "dialect": "mysql",
