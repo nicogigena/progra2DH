@@ -40,18 +40,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
 //Si hay cookie y no hay session:
-  if(req.cookies.userId && !req.session.user){ //Si hay Cookie y no hay Session
+  if(req.cookies.userId != undefined && req.session.user == undefined){ //Si hay Cookie y no hay Session
     db.Usuario.findByPk(req.cookies.userId) //Encontrá al usuario de la cookie
       .then(user=>{
         req.session.user = user; //Envialo a la session
         res.locals.user = user; //Despues envialo a locals
         return next()
       })
-  } else if (req.session.user){//Si hay Session (no importa por qué) Envialo a locals
+  } else if (req.session.user != undefined){//Si hay Session (no importa por qué) Envialo a locals
     res.locals.user = req.session.user
     return next();
+  } else {
+    return next();
   }
-  return next()
 })
 
 
