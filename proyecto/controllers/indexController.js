@@ -39,15 +39,19 @@ let indexController ={
         //return res.send(register)
     },
     redirect: function (req,res){
-        let logueado
-        if (req.session.user) {
-            logueado = 1
-        } else {
-            logueado = 0
-        }
-        if (logueado==1){ 
+
+        if (req.session.user || req.cookies.userId) {
             return res.redirect("/home") 
-        } else {
+        } else if(req.cookies.userId){
+            users.findByPk(req.cookies.userId)
+                .then(resultados=>{
+                    req.session.user = resultados
+                    return res.redirect("/home")
+                })
+                .catch(error=>{
+                    console.log(error)
+                })
+        }  else{
             return res.redirect("/registracion")
         }
 
