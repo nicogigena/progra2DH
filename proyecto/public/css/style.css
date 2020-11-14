@@ -101,8 +101,12 @@ h2 {
 .ubicacion{
     font-weight: bold;
 }
-.descrpcion
-{text-align: center;
+
+.descrpcion{
+    text-align: center;
 }
     
-
+h2.comentarios {
+    text-align: center;
+    font-size: x-large;
+}

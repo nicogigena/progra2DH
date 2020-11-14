@@ -54,7 +54,16 @@
                             <li>Seguidores: <% if(resultados) { %><%= resultados.seguidores %> <% } %>  </li>
                             <li>Seguidos: <% if(resultados) { %><%= resultados.seguidos %> <% } %>  </li>
                             </ul>
+                            <article>
+                            <form action="/detalleUsuario" method="GET">
+                                <a href="/detalleUsuario/comentarios/<% if(resultados) { %> <%= resultados.id %> <% } %>">
+                                <button type="button" class="btn btn-primary">Ver historial de comentarios</button>
+                            </a>
+                            </form>
+                            </article>
                         </div>
+                        
+                            
                     </div>
                     
                </section>
