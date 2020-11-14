@@ -18,10 +18,10 @@ module.exports = function(sequelize, dataTypes){
         descripcion: {
             type : dataTypes.STRING
         },
-       // created_at: {
-         //   type : dataTypes.DATE,
-           // allowNull: true,
-       // },
+        creacion: {
+        type : dataTypes.DATE,
+        allowNull: true,
+        },
        // updated_at: {
          //   type : dataTypes.DATE,
             //allowNull: true,
