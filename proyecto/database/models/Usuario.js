@@ -53,11 +53,11 @@ module.exports = function(sequelize, dataTypes){
         },
         pregunta_res: {
             type : dataTypes.STRING
-        },     
-       created_at: {
-           type : dataTypes.DATE,
-            allowNull: true,
-        },
+        } 
+      // created_at: {
+       // type : dataTypes.DATE,
+     //allowNull: true,
+        
     }
     let config = {
         tableName : "usuarios",
