@@ -22,10 +22,10 @@ module.exports = function(sequelize, dataTypes){
         type : dataTypes.DATE,
         allowNull: true,
         },
-       // updated_at: {
-         //   type : dataTypes.DATE,
-            //allowNull: true,
-        //},
+        updated_at: {
+         type : dataTypes.DATE,
+        allowNull: true,
+        },
         ubicacion: {
             type : dataTypes.STRING
         },
@@ -35,7 +35,7 @@ module.exports = function(sequelize, dataTypes){
 
     let config = {
        tableName : "postear",
-      //  timestamps : false,
+       timestamps : false,
         //underscored:true,
 
     }
