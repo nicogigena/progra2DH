@@ -39,6 +39,10 @@ module.exports = function(sequelize, dataTypes){
         fotoPerfil: {
             type : dataTypes.STRING
         },
+        created_at: {
+            type : dataTypes.DATE,
+            allowNull: true,
+        },
         seguidos: {
             type : dataTypes.INTEGER
         },
@@ -54,16 +58,14 @@ module.exports = function(sequelize, dataTypes){
         pregunta_res: {
             type : dataTypes.STRING
         } ,
-      created_at: {
-     type : dataTypes.DATE,
-     allowNull: true,
+      
         
     }
-}
+
     let config = {
         tableName : "usuarios",
         //underscored:true,
-       // timestamps : false
+        timestamps : true
     }
 
     const Usuario = sequelize.define(alias, cols, config);
