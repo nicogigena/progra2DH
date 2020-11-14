@@ -53,11 +53,16 @@ module.exports = function(sequelize, dataTypes){
         },
         pregunta_res: {
             type : dataTypes.STRING
+        },     
+       created_at: {
+           type : dataTypes.DATE,
+            allowNull: true,
         },
     }
     let config = {
         tableName : "usuarios",
-        timestamps : false
+        //underscored:true,
+       // timestamps : false
     }
 
     const Usuario = sequelize.define(alias, cols, config);

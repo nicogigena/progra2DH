@@ -18,8 +18,13 @@ module.exports = function(sequelize, dataTypes){
         descripcion: {
             type : dataTypes.STRING
         },
-        creacion: {
-            type : dataTypes.INTEGER
+        created_at: {
+            type : dataTypes.DATE,
+            allowNull: true,
+        },
+        updated_at: {
+            type : dataTypes.DATE,
+            allowNull: true,
         },
         ubicacion: {
             type : dataTypes.STRING
@@ -30,7 +35,9 @@ module.exports = function(sequelize, dataTypes){
 
     let config = {
        tableName : "postear",
-        timestamps : false
+      //  timestamps : false,
+        //underscored:true,
+
     }
 
     const Postear = sequelize.define(alias, cols, config);
