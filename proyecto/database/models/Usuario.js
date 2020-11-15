@@ -59,6 +59,7 @@ module.exports = function(sequelize, dataTypes){
         allowNull: true,
         
     }
+}
 
     let config = {
         tableName : "usuarios",

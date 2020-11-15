@@ -5,7 +5,12 @@ const users = db.Usuario;
 const preguntas = db.Pregunta;
 
 let indexController ={
+
     index: function(req, res){
+        if(req.session.user!=undefined){ 
+            return res.redirect("/home")
+        }
+        else {
         preguntas.findAll({
             order: [["id", "ASC"]]
         })
@@ -16,6 +21,7 @@ let indexController ={
                 console.log(error)
             })
         
+        }
     },
     store: function (req, res){
         if (req.session.user) {

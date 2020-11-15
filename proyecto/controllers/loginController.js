@@ -5,9 +5,14 @@ const users = db.Usuario;
 const preguntas = db.Pregunta;
 
 let loginController = {
+        
     index: function(req, res){
-    
+        if(req.session.user!=undefined){ 
+            return res.redirect("/home")
+        }
+        else {
         return res.render('login');
+        }
     },
     login: function (req, res){
         //encontrar el email
