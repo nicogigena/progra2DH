@@ -55,10 +55,14 @@ let homeController = {
         })
     },
     agregarPost: function(req, res){
+        if(req.session.user!=undefined){
         
         return res.render('agregarPost')
 
-
+        }
+        else{
+        res.redirect('/login')
+        }
     },
     storePost: function (req, res){
         
@@ -93,6 +97,7 @@ let homeController = {
             })
     },    
     miPerfilEdit: function(req, res){
+
         if(req.body.rechazar == 1){
             return res.redirect("/home/miPerfil")
         } else if(req.body.nombreNew){
@@ -105,6 +110,10 @@ let homeController = {
         }
     },
     miPerfilEditTodo: function(req, res){
+        if (req.session.user == undefined) {
+            return res.redirect("/login")
+        }
+        else{
         users.findOne({
             where:[{id: req.session.user.id}],
             include: [{association: 'pregunta'}] 
@@ -115,6 +124,7 @@ let homeController = {
             .catch(function(error){
                 console.log(error)
             })
+        }
     },
     miPerfilEditTodoPost: function(req, res){
         let usuarioProm = users.findByPk(req.session.user.id, {

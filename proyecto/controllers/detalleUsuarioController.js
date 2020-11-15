@@ -8,6 +8,11 @@ let detalleUsuarioController ={
 
     index: function(req, res){
         let primaryKey = req.params.id
+        if(req.session.user.id==primaryKey){
+            res.redirect("/home/miPerfil")
+        }
+        else{
+        
         users.findByPk(primaryKey,
             {
                 include: [
@@ -27,6 +32,7 @@ let detalleUsuarioController ={
             .catch(function(error){
                 console.log(error)
             })
+        }
         },
     show: function(req, res){
         let primaryKey = req.params.idUsuario
