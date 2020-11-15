@@ -55,7 +55,7 @@
                         </div>
                         <div>
                         </div>
-                        <div class="post-comentarios">
+                        <div class="post-comentarios text-left">
                             <h6>Comentarios</h6>
                             <ul>
                                 <% if(resultados[i].comentario.length != 0){%>
@@ -84,7 +84,7 @@
                                         </li>
                                         <%}%>
                                 <%}%>
-                            <a href="/detallePost/<% if(resultados[i]){ %> <%= resultados[i].id %><% } %> ">Ver más...</a>
+                            <a class="text-right" href="/detallePost/<% if(resultados[i]){ %> <%= resultados[i].id %><% } %> ">Ver más...</a>
                             </ul>
                         </div>
                     </article>
