@@ -49,20 +49,20 @@ comentar: function(req, res){
 
 },
 edit: function (req,res){
-
 let idAEditar= req.params.id
-
 post.findByPk(idAEditar)
 
 .then ( function(postear){
-
+    if(req.session.user.id==postear.usuario_id){
     return res.render("postEdit", {postear})
+    }
+    else{
+        res.redirect('/home')
+    }
 })
 .catch(function (error) {
     console.log(error);
 })
-
-;
 
 },
 update: function (req,res){
@@ -91,13 +91,16 @@ update: function (req,res){
 destroy: function (req,res){
     //necesitamos decirle donde va a borrar, sino va a borrar todos los posts de la base de datos
     let idABorrar = req.params.id;
+    if(req.session.user.id==post.usuario_id){
     post.destroy({
         where:{
             id:idABorrar
         }
     })
+}
     return res.redirect('/home')
 }
+
 
     };
     

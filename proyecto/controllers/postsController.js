@@ -12,9 +12,9 @@ let postsController = {
             {descripcion: { [op.like] : "%" + buscarPost + "%"}}
         ],
         order: [
-            ['creacion', 'ASC']
+            ['creacion', 'DESC']
         ],
-        limit: 10,
+        limit: 20,
         include: [
             {
                 association: "usuario"

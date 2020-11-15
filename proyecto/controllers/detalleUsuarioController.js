@@ -11,8 +11,7 @@ let detalleUsuarioController ={
         if(req.session.user.id==primaryKey){
             res.redirect("/home/miPerfil")
         }
-        else{
-        
+        else {
         users.findByPk(primaryKey,
             {
                 include: [
