@@ -15,7 +15,7 @@ let indexController ={
             order: [["id", "ASC"]]
         })
             .then(resultados=>{
-                return res.render("registracion", {resultados: resultados})
+                return res.render("registracion", {resultados: resultados, query: req.query})
             })
             .catch(function(error){
                 console.log(error)
@@ -26,7 +26,7 @@ let indexController ={
     store: function (req, res){
         if (req.session.user) {
             res.redirect("/home")
-        }
+        } else {
         let register = {
             email: req.body.email,
             contraseña: bcrypt.hashSync(req.body.contraseña, 10),
@@ -40,8 +40,20 @@ let indexController ={
             pregunta_id: req.body.pregunta,
             pregunta_res: bcrypt.hashSync(req.body.respuesta, 10)
         }
-        users.create(register);
-        return res.redirect('/login')
+        users.findOne({
+            where:[{email:req.body.email}]
+        })
+            .then(resultado=>{
+                if (resultado.email == req.body.email) {
+                    return res.redirect("/registracion?status=email")
+                } else{
+                    users.create(register);
+                    return res.redirect('/login')
+                }
+                }
+            )
+            
+        }
         //return res.send(register)
     },
     redirect: function (req,res){
