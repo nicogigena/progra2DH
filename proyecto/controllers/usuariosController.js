@@ -10,8 +10,7 @@ let usuariosController = {
         usuario.findAll({
             where: [
                 { 
-                email: { [op.like] : "%" + buscarUsuario + "%"}, 
-                nombre: { [op.like] : "%" + buscarUsuario + "%"}
+                email: { [op.like] : "%" + buscarUsuario + "%"}
                 },
             
             ],

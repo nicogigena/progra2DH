@@ -109,7 +109,13 @@ let detalleController = {
                 where:[{id: idABorrar}]
             })
                 .then(resultado=>{
+                    
                     if(req.session.user.id==resultado.usuario_id){
+                    coment.destroy({
+                        where:{
+                            post_id:resultado.id
+                        }
+                    })
                     post.destroy({
                         where:{
                             id:idABorrar
