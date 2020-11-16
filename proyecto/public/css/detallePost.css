@@ -27,7 +27,7 @@ article.detalle-post .imagen-post{
     margin: 0 0 0 8px;
 }
 .comentarios-detalle .lista-comentarios{
-    height: 75%;
+    height: 250px;
     padding-left: 5px;
     border-bottom: 1px solid lightgray;
     overflow: scroll;
