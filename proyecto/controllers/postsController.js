@@ -25,7 +25,7 @@ let postsController = {
         ],
     })
     .then(function(resultados){
-        console.log(resultados);
+        //return res.send(resultados)
         return res.render('buscadorPosts', {resultados: resultados})
     })
     .catch(function(error){

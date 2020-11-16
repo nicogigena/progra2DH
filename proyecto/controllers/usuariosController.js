@@ -11,7 +11,9 @@ let usuariosController = {
             where: [
                 { 
                 email: { [op.like] : "%" + buscarUsuario + "%"}, 
-                } 
+                nombre: { [op.like] : "%" + buscarUsuario + "%"}
+                },
+            
             ],
         })
         .then(function(resultados){
