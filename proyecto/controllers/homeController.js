@@ -54,7 +54,7 @@ let homeController = {
         return res.redirect('/home')
 
     },    
-    miPerfil: function(req, res){
+    miPerfil: function(req, res){ //GET
         if (req.session.user == undefined) {
             return res.redirect("/login")
         }
@@ -73,7 +73,7 @@ let homeController = {
                 console.log(error)
             })
     },    
-    miPerfilEdit: function(req, res){
+    miPerfilEdit: function(req, res){ //POST
 
         if(req.body.rechazar == 1){
             return res.redirect("/home/miPerfil")
@@ -86,7 +86,7 @@ let homeController = {
             return res.redirect("/home/miPerfil")
         }
     },
-    miPerfilEditTodo: function(req, res){
+    miPerfilEditTodo: function(req, res){ //GET Todo
         if (req.session.user == undefined) {
             return res.redirect("/login")
         }
@@ -103,7 +103,7 @@ let homeController = {
             })
         }
     },
-    miPerfilEditTodoPost: function(req, res){
+    miPerfilEditTodoPost: function(req, res){ //POST Todo
         let usuarioProm = users.findByPk(req.session.user.id, {
             include: [{association: 'pregunta'}]
         });

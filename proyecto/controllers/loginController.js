@@ -39,7 +39,7 @@ let loginController = {
                 req.session.user = user;
 
                 if(req.body.rememberme != undefined){
-                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
+                    res.cookie('userId', user.id, { maxAge: 1000 * 60 * 60 * 24 * 30 });//30 dias
                     return res.redirect('/home');
                 }
                 //return res.send(req.session.user)
@@ -74,7 +74,7 @@ let loginController = {
     forgotIdPost:function(req, res){
         users.findByPk(req.params.id)
             .then(resultados=>{
-                if (bcrypt.compareSync(req.body.respuesta, resultados.pregunta_res)){
+                if (bcrypt.compareSync(req.body.respuesta, resultados.pregunta_res)){ //la pregunta
                     users.update({
                         contraseña: bcrypt.hashSync(req.body.newPass, 10)}, {
                         where:[{id: req.params.id}]

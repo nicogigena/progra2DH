@@ -35,7 +35,7 @@ let detalleController = {
                     fechaArray[i].mes = date.numberToMonth(fechaArray[i].mes)
                     
                 }
-
+                //return res.send(fechaArray)
                 return res.render('detallePost', { resultados : resultados, fechaArray});
             })
             .catch(function (error) {
@@ -106,16 +106,20 @@ let detalleController = {
         let idABorrar = req.params.id;
         if (req.session.user) {
             post.findOne({
-                where:[{id: idABorrar}]
+                where:[{id: idABorrar}],
+                include:[{association: 'comentario'}]
             })
                 .then(resultado=>{
                     
                     if(req.session.user.id==resultado.usuario_id){
-                    coment.destroy({
-                        where:{
-                            post_id:resultado.id
+                        if (resultado.comentario.length) {
+                            coment.destroy({
+                                where:{
+                                    post_id:resultado.id
+                                }
+                            })
                         }
-                    })
+                        
                     post.destroy({
                         where:{
                             id:idABorrar
