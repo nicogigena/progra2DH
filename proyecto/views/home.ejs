@@ -31,9 +31,9 @@
                             <img class="foto-perfil" src="<% if(resultados[i].usuario){ %><%= resultados[i].usuario.fotoPerfil %> <% } %>  " alt="">
                             </div>
                             <h4>
-                            <a href="/detalleUsuario/<% if(resultados[i].usuario){ %> <%= resultados[i].usuario.id %> <% } %> "> <% if(resultados[i].usuario){ %> 
+                            <a href="/detalleUsuario/<%if(resultados[i].usuario){%><%= resultados[i].usuario.id%><%}%>"><% if(resultados[i].usuario){ %>
                                     <%= resultados[i].usuario.nombre  %> 
-                                    <% } %> </a>
+                                    <% } %></a>
                             </h4> 
                         <br><br>
                         <p class="ubicacionHome">Ubicación: <% if(resultados[i]) { %> <%= resultados[i].ubicacion %><% } %> </p>

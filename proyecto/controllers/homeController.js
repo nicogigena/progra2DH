@@ -36,6 +36,7 @@ let homeController = {
 
                     ], */
                     //return res.send({resultados: resultados})
+                    
                     return res.render('home', {resultados: resultados})
                    
                 })
