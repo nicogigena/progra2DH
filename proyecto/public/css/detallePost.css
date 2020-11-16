@@ -62,5 +62,8 @@ article.detalle-post .imagen-post{
     margin-right: 4px !important;
 }
 
-
+.fecha{
+    color:grey;
+    font-size:0.7em;
+}
 

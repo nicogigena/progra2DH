@@ -44,7 +44,7 @@ let indexController ={
             where:[{email:req.body.email}]
         })
             .then(resultado=>{
-                if (resultado.email == req.body.email) {
+                if (resultado) {
                     return res.redirect("/registracion?status=email")
                 } else{
                     users.create(register);

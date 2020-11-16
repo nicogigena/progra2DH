@@ -8,8 +8,30 @@ let detalleUsuarioController ={
 
     index: function(req, res){
         let primaryKey = req.params.id
-        if(req.session.user.id==primaryKey){
+        if(req.session.user != undefined){
+            if(req.session.user.id == primaryKey){
             res.redirect("/home/miPerfil")
+            } else {
+                users.findByPk(primaryKey,
+                    {
+                        include: [
+                            {
+                                all: true, nested: true
+                            },
+                        ],
+                       
+                    },)
+        
+                     .then(function(resultados){
+                         //return res.send(resultados)
+                            return res.render('detalleUsuario', {resultados : resultados})
+                           
+                        })
+                
+                    .catch(function(error){
+                        console.log(error)
+                    })
+                }
         }
         else {
         users.findByPk(primaryKey,

@@ -46,7 +46,9 @@
                                 <%= resultados.nombre %> 
                                 <% } %>
                             </h3>
-                            <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
+                            <% if (locals.user) {%>
+                                <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>          
+                            <%} %>
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
