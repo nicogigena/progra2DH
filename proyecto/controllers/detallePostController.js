@@ -49,7 +49,6 @@ let detalleController = {
             post_id: req.params.id,
             usuario_id: req.session.user.id,
             texto: req.query.texto,
-            creacion: 0,
         }
                 // return res.redirect('/home')
         coment.create(comentar);   
