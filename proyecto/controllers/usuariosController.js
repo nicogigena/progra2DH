@@ -9,8 +9,10 @@ let usuariosController = {
         
         usuario.findAll({
             where: [
-                {email: { [op.like] : "%" + buscarUsuario + "%"}}
-            ]
+                { 
+                email: { [op.like] : "%" + buscarUsuario + "%"}, 
+                } 
+            ],
         })
         .then(function(resultados){
             return res.render('buscadorUsuarios', {resultados})
