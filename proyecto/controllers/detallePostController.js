@@ -112,7 +112,7 @@ let detalleController = {
                 .then(resultado=>{
                     
                     if(req.session.user.id==resultado.usuario_id){
-                        if (resultado.comentario.length) {
+                        if (resultado.comentario) {
                             coment.destroy({
                                 where:{
                                     post_id:resultado.id
